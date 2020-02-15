@@ -77,7 +77,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 		if (user.isPresent()) {
 			BeanUtils.copyProperties(user.get(), loginResponseDto);
 			loginResponseDto.setEmployeename(loginResponseDto.getEmployeename());
-
 			loginResponseDto.setEmployeeId(loginResponseDto.getEmployeeId());
 
 			loginResponseDto.setMessage(AppConstant.LOGIN_SCCUESS_MESSAGE);
