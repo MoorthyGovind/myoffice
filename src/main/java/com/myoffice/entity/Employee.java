@@ -8,6 +8,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 import com.myoffice.common.MyOfficeEnum.Role;
 
@@ -24,15 +25,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@SequenceGenerator(name = "sapId", initialValue = 500001, allocationSize = 1)
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer employeeId;
 	private String employeeName;
 	private String emailAddress;
+	private String password;
 	private LocalDate dob;
 	private LocalDate dateOfJoining;
-	private Integer sapId;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sapId")
+	private Long sapId;
 	@Enumerated(EnumType.STRING)
 	private Role role;
+	private Boolean activeStatus;
 }

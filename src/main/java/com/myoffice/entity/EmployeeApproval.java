@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.myoffice.common.MyOfficeEnum.APPROVAL_STATUS;
+import com.myoffice.common.MyOfficeEnum.ApprovalStatus;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,5 +26,5 @@ public class EmployeeApproval {
 	@ManyToOne
 	@JoinColumn(name = "approver_id")
 	private Employee approver;
-	private APPROVAL_STATUS status;
+	private ApprovalStatus status;
 }
