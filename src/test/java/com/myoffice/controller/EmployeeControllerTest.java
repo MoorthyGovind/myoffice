@@ -2,7 +2,13 @@ package com.myoffice.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 import org.junit.Before;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -25,12 +31,9 @@ public class EmployeeControllerTest {
 	@Mock
 	EmployeeService employeeService;
 	
-	@Before
-	public void init() {
-
-	}
-
-
+	ApprovalEmpDto emp=new ApprovalEmpDto();
+	
+	
 	@Test
 	public void testEmpRegistartion() {
 
@@ -54,6 +57,16 @@ public class EmployeeControllerTest {
 		
 		ResponseEntity<LoginResponseDto> authenticateEmployee = employeeController.authenticateEmployee(loginRequestDto);
 		assertEquals(200,authenticateEmployee.getStatusCodeValue());
+		
+	}
+	@Test
+	public void testGetAllApprovalEmployee() {
+	
+		List<ApprovalEmpDto> listOfEmp=new ArrayList<ApprovalEmpDto>();
+		
+		Mockito.when(employeeService.getAllApprovalEmployee()).thenReturn(listOfEmp);
+		ResponseEntity<ApprovalEmployeeResponseDto> allApprovalEmployee = employeeController.getAllApprovalEmployee();
+		assertEquals(200,allApprovalEmployee.getStatusCodeValue());
 		
 	}
 	

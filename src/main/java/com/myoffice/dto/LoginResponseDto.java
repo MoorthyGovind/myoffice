@@ -1,5 +1,7 @@
 package com.myoffice.dto;
 
+import com.myoffice.common.MyOfficeEnum.Role;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,5 +13,6 @@ public class LoginResponseDto {
 	private String message;
 	private Integer employeeId;
 	private String employeename;
+	private Role role;
 
 }
