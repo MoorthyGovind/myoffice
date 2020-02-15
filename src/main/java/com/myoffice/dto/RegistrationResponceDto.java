@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class ResponseDto {
-
+public class RegistrationResponceDto {
 	private Integer statusCode;
 	private String message;
+
 }

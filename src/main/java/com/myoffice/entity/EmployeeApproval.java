@@ -1,6 +1,8 @@
 package com.myoffice.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,5 +28,6 @@ public class EmployeeApproval {
 	@ManyToOne
 	@JoinColumn(name = "approver_id")
 	private Employee approver;
+	@Enumerated(EnumType.STRING)
 	private ApprovalStatus status;
 }

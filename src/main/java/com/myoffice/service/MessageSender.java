@@ -10,8 +10,6 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
 
-import com.myoffice.dto.EmployeeDto;
-
 @Component
 public class MessageSender {
 

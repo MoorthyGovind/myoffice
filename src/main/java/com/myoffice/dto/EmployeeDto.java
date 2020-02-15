@@ -1,11 +1,6 @@
 package com.myoffice.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-
-import javax.management.relation.Role;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 import lombok.Getter;
 import lombok.Setter;
