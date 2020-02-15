@@ -2,12 +2,15 @@ package com.myoffice.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import com.myoffice.common.MyOfficeEnum.Role;
@@ -41,4 +44,7 @@ public class Employee {
 	private Integer sapId;
 	@Enumerated(EnumType.STRING)
 	private Role role;
+	
+	@OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL, mappedBy = "employee")
+    private EmployeeApproval employeeApproval;
 }

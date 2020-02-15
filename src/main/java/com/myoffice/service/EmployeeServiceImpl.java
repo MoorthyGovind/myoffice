@@ -77,20 +77,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<ApprovalEmpDto> getAllApprovalEmployee() {
 
 		List<Employee> allApprovalEmps = employeeRepository.findAll();
-		List<ApprovalEmpDto> collect = allApprovalEmps.stream().map(this::convertEmpEntityToDto)
+		List<ApprovalEmpDto> employees = allApprovalEmps.stream()
+				.filter(employee -> employee.getEmployeeApproval() == null)
+				.map(this::convertEmpEntityToDto)
 				.collect(Collectors.toList());
 
-		return collect;
+		return employees;
 
 	}
 
-	private ApprovalEmpDto convertEmpEntityToDto(Employee allApprovalEmps) {
+	private ApprovalEmpDto convertEmpEntityToDto(Employee employee) {
 		ApprovalEmpDto approvalEmpDto = new ApprovalEmpDto();
-		employee.setEmployeeName(allApprovalEmps.getEmployeeName());
-
-		employee.setEmployeeId(allApprovalEmps.getEmployeeId());
 		BeanUtils.copyProperties(employee, approvalEmpDto);
-
+		approvalEmpDto.setEmployeename(employee.getEmployeeName());
+		approvalEmpDto.setDesignation(employee.getDesignation());
+		approvalEmpDto.setEmailAddress(employee.getEmailAddress());
 		return approvalEmpDto;
 
 	}
