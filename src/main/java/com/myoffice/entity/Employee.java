@@ -28,22 +28,25 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@SequenceGenerator(name = "employeeId", initialValue = 103, allocationSize = 1)
+@SequenceGenerator(name = "sapId", initialValue = 500001, allocationSize = 1)
 public class Employee {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employeeId")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer employeeId;
 	private String employeeName;
 	private String emailAddress;
 	private String password;
 	private LocalDate dob;
 	private LocalDate dateOfJoining;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sapId")
+	private Long sapId;
+	@Enumerated(EnumType.STRING)
+	private Role role;
+	private Boolean activeStatus;
 	private String designation;
 	private Long phoneNumber;
 	private Integer yearsOfExperience;
-	private Integer sapId;
-	@Enumerated(EnumType.STRING)
-	private Role role;
+	
 	
 	@OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL, mappedBy = "employee")
     private EmployeeApproval employeeApproval;

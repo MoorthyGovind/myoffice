@@ -19,7 +19,7 @@ public class MyOfficeEnum {
 	 * @since 15-02-2020
 	 */
 	public enum Role {
-		MANAGER, EMPLOYEE;
+		ADMIN, MANAGER, EMPLOYEE;
 
 	}
 	/**
@@ -29,8 +29,7 @@ public class MyOfficeEnum {
 	 * @since 15-02-2020
 	 * @version V1.1
 	 */
-	public enum APPROVAL_STATUS {
-		PENDING, APPROVED;
-
+	public enum ApprovalStatus {
+		PENDING, REJECTED, APPROVED;
 	}
 }
