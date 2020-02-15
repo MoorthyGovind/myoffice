@@ -13,6 +13,7 @@ public class LoginResponseDto {
 	private String message;
 	private Integer employeeId;
 	private String employeename;
+	private Long sapId;
 	private Role role;
 
 }

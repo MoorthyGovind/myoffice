@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.myoffice.common.MyOfficeEnum;
 import com.myoffice.constant.AppConstant;
 import com.myoffice.dto.ApprovalRequestDto;
 import com.myoffice.dto.ApprovalResponseDto;
@@ -59,6 +60,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employee.setPhoneNumber(registrationRequestDto.getPhoneNumber());
 		employee.setYearsOfExperience(registrationRequestDto.getYearsOfExperience());
 		employee.setDesignation(registrationRequestDto.getDesignation());
+		employee.setPassword(AppConstant.CREDENTIAL_LOGIN);
+		employee.setRole(MyOfficeEnum.Role.EMPLOYEE);
 		Employee response = employeeRepository.save(employee);
 
 		BeanUtils.copyProperties(response, registrationResponceDto);
@@ -80,6 +83,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			loginResponseDto.setEmployeeId(loginResponseDto.getEmployeeId());
 			loginResponseDto.setEmployeename(user.get().getEmployeeName());
 			loginResponseDto.setRole(user.get().getRole());
+			loginResponseDto.setSapId(user.get().getSapId());
 
 			loginResponseDto.setMessage(AppConstant.LOGIN_SCCUESS_MESSAGE);
 
